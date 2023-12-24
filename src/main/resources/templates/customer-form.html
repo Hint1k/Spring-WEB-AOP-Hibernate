@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Customer Form</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+    <link rel="stylesheet" th:href="@{/customer-style.css}">
+</head>
+<body>
+
+<div id="wrapper">
+    <div id="header">
+        <h2>New Customer Form</h2>
+    </div>
+</div>
+
+<div id="container">
+    <h3>New Customer:</h3>
+    <form method="post" action="customer/saveCustomer" th:object="${customer}" th:action="@{saveCustomer}">
+        <table>
+            <tbody>
+                <input type="hidden" id="id" name="id" th:field="*{id}" />
+            <tr>
+                <td><label>First name:</label></td>
+                <td>
+                    <input type="text" id="firstName" name="firstName" th:field="*{firstName}" />
+                </td>
+            </tr>
+
+            <tr>
+                <td><label>Last name:</label></td>
+                <td>
+                    <input type="text" id="lastName" name="lastName" th:field="*{lastName}" />
+                </td>
+            </tr>
+
+            <tr>
+                <td><label>Email:</label></td>
+                <td>
+                    <input type="text" id="email" name="email" th:field="*{email}" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Save Customer" class="save"/>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+    <div style="clear:both"></div>
+    <p>
+        <a th:href="@{/customer/list}">Return back to Customer list</a>
+    </p>
+</div>
+
+</body>
+</html>
